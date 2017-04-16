@@ -29,6 +29,29 @@ hook_add = '''
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+hook_add = '''
+let g:lightline = {
+  \'active': {
+  \  'left': [
+  \    ['mode', 'paste'],
+  \    ['readonly', 'filename', 'modified'],
+  \  ],
+  \  'right': [
+  \    ['ale'],
+  \    ['lineinfo'],
+  \    ['percent'],
+  \    ['fileformat', 'fileencoding', 'filetype']
+  \  ]
+  \},
+  \'component_function': {
+  \  'ale': 'ALEStatus'
+  \}
+\ }
+
+function! ALEStatus()
+  return ALEGetStatusLine()
+endfunction<Paste>
+'''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -62,4 +85,16 @@ hook_add = '''
   nnoremap <silent> [Denite]g :<C-u>Denite grep<CR>
   nnoremap <silent> [Denite]l :<C-u>Denite line<CR>
 
+'''
+
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = '''
+  let g:ale_linters = {
+  \   'javascript': ['eslint'],
+  \}
+
+  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+  nmap <silent> <C-j> <Plug>(ale_next_wrap)
+  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 '''

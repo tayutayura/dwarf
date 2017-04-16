@@ -87,4 +87,7 @@ set mouse=a
 set visualbell t_vb=
 set noerrorbells        "エラーメッセージの表示時にビーブを鳴らさない
 
-au BufRead,BufNewFile *.jsx set filetype=javascript
+augroup FiletypeGroup
+  autocmd!
+  au BufRead,BufNewFile *.jsx set filetype=javascript
+augroup END
