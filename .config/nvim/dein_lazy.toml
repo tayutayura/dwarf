@@ -1,0 +1,35 @@
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_source = '''
+  let g:deoplete#enable_at_startup = 1
+'''
+on_i = 1
+
+[[plugins]]
+repo = 'elixir-lang/vim-elixir'
+on_ft = ['elixir']
+
+[[plugins]]
+repo = 'slashmili/alchemist.vim'
+depends = 'vim-elixir'
+on_ft = ['elixir']
+
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = ['javascript', 'html']
+
+[[plugins]]
+repo = 'mxw/vim-jsx'
+hook_source = '''
+  let g:jsx_ext_required = 0
+'''
+on_ft = ['javascript']
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = ['json']
+
