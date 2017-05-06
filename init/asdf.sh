@@ -5,9 +5,25 @@
 os=$(get_os)
 
 if [ ${os} == 'Mac' ]; then
-  brew install automake autoconf openssl libyaml readline libxslt libtool unixodbc
+  brew install automake\
+                autoconf\
+                openssl\
+                libyaml\
+                readline\
+                libxslt\
+                libtool\
+                unixodbc
 else
-  sudo yum -y install automake autoconf readline-devel ncurses-devel openssl-devel libyaml-devel libxslt-devel libffi-devel libtool unixODBC-devel
+  sudo yum -y install automake\
+                      autoconf\
+                      readline-devel\
+                      ncurses-devel\
+                      openssl-devel\
+                      libyaml-devel\
+                      libxslt-devel\
+                      libffi-devel\
+                      libtool\
+                      unixODBC-devel
 fi
 
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.2.1

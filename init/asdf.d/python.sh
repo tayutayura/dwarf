@@ -5,7 +5,17 @@
 os=$(get_os)
 
 if [ ${os} == 'Linux' ]; then
-  sudo yum -y install gcc gcc-c++ make openssl-devel bzip2 bzip2-devel zlib-devel readline-devel sqlite-devel sqlite zlib-devel
+  sudo yum -y install gcc\
+                      gcc-c++\
+                      make\
+                      openssl-devel\
+                      bzip2\
+                      bzip2-devel\
+                      zlib-devel\
+                      readline-devel\
+                      sqlite-devel\
+                      sqlite\
+                      zlib-devel
 fi
 
 asdf plugin-add python https://github.com/tuvistavie/asdf-python.git

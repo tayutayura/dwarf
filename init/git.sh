@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# only Linux
+
 sudo yum -y install gcc\
                     gcc-c++\
                     curl-devel\
