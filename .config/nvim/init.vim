@@ -90,4 +90,5 @@ set noerrorbells        "エラーメッセージの表示時にビーブを鳴�
 augroup FiletypeGroup
   autocmd!
   au BufRead,BufNewFile *.jsx set filetype=javascript
+  au BufRead,BufNewFile *.eex,*.erb set filetype=elixir
 augroup END
