@@ -92,3 +92,6 @@ augroup FiletypeGroup
   au BufRead,BufNewFile *.jsx set filetype=javascript
   au BufRead,BufNewFile *.eex,*.erb set filetype=html
 augroup END
+
+nnoremap ; :
+nnoremap : ;
