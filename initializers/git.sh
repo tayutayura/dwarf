@@ -9,10 +9,6 @@ sudo yum install -y gcc\
                     perl-ExtUtils-MakeMaker\
                     git
 
-# Setup Git
-git config --global user.name "tayutayura"
-git config --global user.email "tayutayura@gmail.com"
-
 # Update Git
 ## For Linux
 cd /usr/local/src
