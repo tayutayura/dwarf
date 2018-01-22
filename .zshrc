@@ -33,6 +33,5 @@ if [ -f $ASDF_DIR/asdf.sh ]; then
     . $ASDF_DIR/asdf.sh
 fi
 
-export PATH="/home/ec2-user/.phpenv/bin:$PATH"
-eval "$(phpenv init -)"
-
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_CONFIG_HOME="{$HOME}/.config"
