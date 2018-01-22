@@ -34,4 +34,4 @@ if [ -f $ASDF_DIR/asdf.sh ]; then
 fi
 
 export XDG_CACHE_HOME="${HOME}/.cache"
-export XDG_CONFIG_HOME="${$HOME}/.config"
+export XDG_CONFIG_HOME="${HOME}/.config"
