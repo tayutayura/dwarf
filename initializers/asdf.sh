@@ -13,10 +13,9 @@ sudo yum install -y automake\
 echo -e "\033[0;32m[asdf] Clone asdf from Github\033[0;39m"
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.4.1
 
-# write initial setting for .vimrc
 {
     echo ""
-    echo "Please add the following settings to your .bashrc file:"
+    echo "Please add the following settings to '.bashrc'"
     echo "--------------------------------------------------"
     echo ""
     echo "# SETUP asdf."
