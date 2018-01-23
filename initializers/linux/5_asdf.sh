@@ -26,8 +26,10 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.4.1
 }
 echo -e "\033[0;32m[asdf] Complete!\033[0;39m\n"
 
-# exec $SHELL -l
+source ${HOME}/.bashrc
 
-for file in ${INIT_DIR}/asdf.d/*.sh; do
+for file in ${HOME}/dotfiles/initializers/asdf.d/*.sh; do
   source ${file}
 done
+
+source ${HOME}/.bashrc
