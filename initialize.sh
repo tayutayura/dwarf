@@ -2,6 +2,8 @@ DOT_DIR="./"
 
 source "./check_os.sh"
 
+source "./link.sh"
+
 if [ ${os} == 'Mac' ]; then
   INIT_DIR="./initializers/osx"
 else
