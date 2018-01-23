@@ -3,9 +3,8 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-let g:python_host_prog =  expand("$HOME/.asdf/installs/python/2.7.13/bin/python2")
-let g:python3_host_prog =  expand("$HOME/.asdf/installs/python/3.6.0/bin/python3")
-" let g:python3_host_prog =  expand("$HOME/.asdf/shims/python3")
+let g:python_host_prog =  expand("$HOME/.asdf/installs/python/2.7.14/bin/python2")
+let g:python3_host_prog =  expand("$HOME/.asdf/installs/python/3.6.4/bin/python3")
 let g:dein_dir = expand("$HOME/.cache/dein")
 let g:dein_repo_dir = g:dein_dir . '/repos/github.com/Shougo/dein.vim'
 let g:rc_dir = expand("$HOME/.config/nvim")
