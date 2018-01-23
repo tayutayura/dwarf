@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Install Git dependencies
 sudo yum install -y gcc\
                     gcc-c++\
@@ -10,7 +12,6 @@ sudo yum install -y gcc\
                     git
 
 # Update Git
-## For Linux
 cd /usr/local/src
 sudo git clone git://git.kernel.org/pub/scm/git/git.git
 
