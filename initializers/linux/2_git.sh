@@ -19,4 +19,4 @@ cd git
 sudo make prefix=/usr/local all
 sudo make prefix=/usr/local install
 
-cd ${HOME}/dotfiles
+cd ${HOME}/dwarf

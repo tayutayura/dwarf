@@ -18,7 +18,7 @@ echo -e "\033[0;32m[asdf] Complete!\033[0;39m\n"
 
 source ${HOME}/.bashrc
 
-for file in ${HOME}/dotfiles/initializers/common/asdf.d/*.sh; do
+for file in ${HOME}/dwarf/initializers/common/asdf.d/*.sh; do
   source ${file}
 done
 
