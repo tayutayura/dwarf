@@ -11,3 +11,5 @@ sudo yum install -y automake\
                     libffi-devel\
                     libtool\
                     unixODBC-devel
+
+sudo yum -y install perl-Digest-SHA
