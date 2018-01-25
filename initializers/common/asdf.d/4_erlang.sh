@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# ASDF_ERLANG_VERSION="20.2.2"
-ASDF_ERLANG_VERSION="20.1"
+ASDF_ERLANG_VERSION="20.2.2"
 
 asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
 

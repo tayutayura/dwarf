@@ -9,3 +9,7 @@ bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
 
 asdf install nodejs 9.4.0
 asdf global nodejs 9.4.0
+
+if type nvim; then
+  npm install -g neovim
+fi
