@@ -46,7 +46,7 @@ endif
 "End dein Scripts-------------------------
 
 "set background=dark
-colorscheme molokai
+colorscheme dracula
 "let g:molokai_original = 1
 "let g:rehash256 = 1
 
