@@ -35,3 +35,9 @@ fi
 
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_CONFIG_HOME="${HOME}/.config"
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export PATH=$PATH:node_modules/.bin
+
+export PATH=$HOME/.cache/rebar3/bin:$PATH
