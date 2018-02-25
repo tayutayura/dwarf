@@ -86,6 +86,12 @@ set mouse=a
 set visualbell t_vb=
 set noerrorbells        "エラーメッセージの表示時にビーブを鳴らさない
 
+" When editing a file, always jump to the last cursor position
+autocmd BufReadPost *
+\ if line("'\"") > 0 && line ("'\"") <= line("$") |
+\   exe "normal! g'\"" |
+\ endif
+
 augroup FiletypeGroup
   autocmd!
   au BufRead,BufNewFile *.jsx set filetype=javascript

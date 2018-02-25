@@ -60,6 +60,13 @@ endfunction<Paste>
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
+repo = 'jsfaint/gen_tags.vim'
+hook_source = '''
+  let g:gen_tags#ctags_auto_gen = 1
+  let g:gen_tags#gtags_auto_gen = 0
+'''
+
+[[plugins]]
 repo = 'tpope/vim-surround'
 
 [[plugins]]
@@ -87,7 +94,9 @@ hook_add = '''
   nnoremap <silent> [Denite]r :<C-u>Denite file_rec<CR>
   nnoremap <silent> [Denite]g :<C-u>Denite grep<CR>
   nnoremap <silent> [Denite]l :<C-u>Denite line<CR>
-
+  call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>')
+  call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>')
+  call denite#custom#option('default', 'prompt', '>')
 '''
 
 [[plugins]]
