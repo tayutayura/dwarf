@@ -54,7 +54,7 @@ set encoding=utf8
 set notitle
 set ruler               "Show the cursor position
 set number              "行番号の表示
-set cursorline          "Change the cursor line color
+" set cursorline          "Change the cursor line color
 set list                "Show invisible characters
 set listchars=tab:»\ ,trail:·,nbsp:·,eol:↲
 set tabstop=2           "タブ幅
@@ -66,6 +66,7 @@ set smartindent         "改行時に入力された行の末尾に合わせて�
 set whichwrap=b,s,h,l,<,>,[,]] "カーソルを行頭、行末で止まらないようにする
 set backspace=indent,eol,start "バックスペースを有効にする
 set colorcolumn=100
+set synmaxcol=200       "シンタックスハイライトは一行につき200文字までとする
 
 set nobackup            "ファイル保存時にバックアップファイルを作らない
 set noswapfile          "ファイル編集中にスワップファイルを作らない

@@ -53,18 +53,18 @@ let g:lightline = {
 
 function! ALEStatus()
   return ALEGetStatusLine()
-endfunction<Paste>
+endfunction
 '''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
-[[plugins]]
-repo = 'jsfaint/gen_tags.vim'
-hook_source = '''
-  let g:gen_tags#ctags_auto_gen = 1
-  let g:gen_tags#gtags_auto_gen = 0
-'''
+# [[plugins]]
+# repo = 'jsfaint/gen_tags.vim'
+# hook_source = '''
+#   # let g:gen_tags#ctags_auto_gen = 0
+#   # let g:gen_tags#gtags_auto_gen = 1
+# '''
 
 [[plugins]]
 repo = 'tpope/vim-surround'

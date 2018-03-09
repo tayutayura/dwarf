@@ -9,10 +9,10 @@ on_i = 1
 repo = 'elixir-lang/vim-elixir'
 on_ft = ['elixir']
 
-[[plugins]]
-repo = 'slashmili/alchemist.vim'
-depends = 'vim-elixir'
-on_ft = ['elixir']
+# [[plugins]]
+# repo = 'slashmili/alchemist.vim'
+# depends = 'vim-elixir'
+# on_ft = ['elixir']
 
 [[plugins]]
 repo = 'othree/yajs.vim'
@@ -33,3 +33,14 @@ on_ft = ['toml']
 repo = 'elzr/vim-json'
 on_ft = ['json']
 
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
+
+[[plugins]]
+repo = 'lighttiger2505/gtags.vim'
+hook_add = '''
+  nnoremap <silent> <C-]> :GtagsCursor<CR>
+  nnoremap <silent> <C-j> :cn<CR>
+  nnoremap <silent> <C-k> :cp<CR>
+'''
