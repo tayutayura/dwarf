@@ -1,0 +1,190 @@
+#!/bin/bash
+
+readonly SCRIPT_NAME=${0##*/}
+readonly VERSION=0.1.0
+readonly DEFAULT_DOTFILES_DIR="${HOME}"
+readonly DWARF_BASE_DIR=$(dirname $0)
+readonly DWARF_DOTFILES_DIR="${DWARF_BASE_DIR}/dotfiles"
+readonly DWARF_INITIALIZERS_DIR=${DWARF_BASE_DIR}/initializers
+readonly DWARF_INITIALIZERS_COMMON_DIR=${DWARF_INITIALIZERS_DIR}/common
+declare DWARF_INITIALIZERS_OS_DIR=
+declare -a SCRIPT_LIST=
+declare OS=
+
+# 青色でログを出力
+info()
+{
+  printf "\e[34m%s\n\e[m" "$*"
+}
+
+# 緑色でログを出力
+success()
+{
+  printf "\e[32m%s\n\e[m" "$*"
+}
+
+# 黄色でログを出力
+warn()
+{
+  printf "\e[33m%s\n\e[m" "$*"
+}
+
+# 赤色でログを出力
+error()
+{
+  printf "\e[31m%s\n\e[m" "$*"
+}
+
+# ヘルプを出力する
+help()
+{
+  cat << END
+Usage: $SCRIPT_NAME <COMMAND>
+
+Commands:
+  create      Initialize & Link
+  initialize  Install libraries & dependencies
+  link        Create symbolic link to dotfile
+END
+}
+
+# バージョン情報を出力する
+version()
+{
+  cat << END
+$SCRIPT_NAME version $VERSION
+END
+}
+
+# エラーメッセージを出力する
+make_error()
+{
+  cat << END 1>&2
+$SCRIPT_NAME: $1
+Try --help option for more information
+END
+}
+
+# グローバル変数 ${os} にOS情報を代入する
+detect_os()
+{
+  case "$(uname)" in
+    'Darwin')
+      OS='Mac'
+      ;;
+    *)
+      if [ -e "/etc/redhat-release" ]; then
+        OS='CentOS'
+      elif [ -e "/etc/lsb-release" ]; then
+        OS='Ubuntu'
+      fi
+      ;;
+  esac
+}
+
+# DWARF_INITIALIZERS_OS_DIRを定義する
+detect_initializers_dir()
+{
+  case "${OS}" in
+    CentOS)
+      DWARF_INITIALIZERS_OS_DIR="${DWARF_INITIALIZERS_DIR}/centos"
+      ;;
+    Ubuntu)
+      DWARF_INITIALIZERS_OS_DIR="${DWARF_INITIALIZERS_DIR}/ubuntu"
+      ;;
+    Mac)
+      DWARF_INITIALIZERS_OS_DIR="${DWARF_INITIALIZERS_DIR}/osx"
+      ;;
+  esac
+}
+
+# 実行するスクリプトの配列を定義する
+detect_script_list()
+{
+  case "${OS}" in
+    CentOS)
+      SCRIPT_LIST=(utils.sh git.sh zsh.sh neovim.sh asdf.sh global.sh)
+      ;;
+    Ubuntu)
+      SCRIPT_LIST=
+      ;;
+    Mac)
+      SCRIPT_LIST=(brew.sh utils.sh zsh.sh neovim.sh asdf.sh global.sh)
+      ;;
+  esac
+}
+
+# スクリプトを実行する
+load_script()
+{
+  info "runnig shell $1..."
+  . $1
+  if [ $? -eq 0 ]; then
+    success "$1 complete!"
+  fi
+}
+
+# ライブラリのインストールを行う
+initialize()
+{
+  detect_initializers_dir
+  detect_script_list
+
+  for script in ${SCRIPT_LIST[@]}
+  do
+    load_script "${DWARF_INITIALIZERS_OS_DIR}/${script}"
+  done
+}
+
+# シンボリックリンクを貼る
+link()
+{
+  # 環境変数DOTFILES_DIRが設定されていればそちらを使う
+  local dotfiles_dir=${DOTFILES_DIR:-$DEFAULT_DOTFILES_DIR}
+  for file in $(find -- $(cd ${DWARF_DOTFILES_DIR}; pwd) -mindepth 1 -maxdepth 1); do
+    ln -sfnv ${file} ${dotfiles_dir}/$(basename ${file})
+  done
+}
+
+# initialize & link
+create()
+{
+  link
+  initialize
+}
+
+case "$1" in
+  create|initialize|link)
+    sub_command=$1
+    detect_os
+    shift
+    ;;
+  --help)
+    help
+    exit 0
+    ;;
+  --version)
+    version
+    exit 0
+    ;;
+  *)
+    make_error "'$1': Unknown command"
+    exit 1
+    ;;
+esac
+
+declare -i result=0
+
+case "${sub_command}" in
+  'link')
+    link
+    ;;
+  'initialize')
+    initialize
+    ;;
+  'create')
+    create
+    ;;
+esac
+
+exit $?
