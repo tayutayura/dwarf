@@ -32,8 +32,7 @@ END
 asdf__install_languages()
 {
   local asdf_lang_dir=${DWARF_INITIALIZERS_COMMON_DIR}/asdf.d
-  # local -a install_lang_scripts=(ruby.sh python.sh nodejs.sh golang.sh erlang.sh elixir.sh)
-  local -a install_lang_scripts=(python.sh)
+  local -a install_lang_scripts=(ruby.sh python.sh nodejs.sh golang.sh erlang.sh elixir.sh)
   for script in ${install_lang_scripts[@]}
   do
     . ${asdf_lang_dir}/${script}
