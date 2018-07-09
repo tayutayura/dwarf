@@ -1,5 +1,6 @@
 # Dwarf - dotfiles
 
+@tayutayura's dotfiles
 ## Toolset
 - Neovim
   - dein
@@ -9,7 +10,9 @@
 - GNU GLOBAL
 
 ## Usage
-- dwarf create
-- dwarf initialize
-- dwarf link
-
+- dwarf link  
+  link dotfiles.
+- dwarf initialize  
+  install toolset.
+- dwarf create  
+  link & initialize.
