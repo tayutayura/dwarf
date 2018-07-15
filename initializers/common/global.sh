@@ -14,7 +14,7 @@ global__install_pygments()
 
 global__install()
 {
-  if type global; then
+  if ! type global 2> /dev/null; then
     (
       cd ${HOME}
       wget http://tamacom.com/global/global-${GLOBAL_VERSION}.tar.gz
@@ -31,7 +31,7 @@ global__install()
 }
 
 global__install_pygments
-if [ $? -ne 1 ]; then
+if [ $? -eq 0 ]; then
   global__install
 else
   info "pygments is not installed. Please install pygments to install global."

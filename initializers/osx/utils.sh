@@ -21,7 +21,7 @@ utils__install()
   if [ ${#install_list[@]} -ne 0 ]; then
     brew install ${install_list[@]}
   else
-    info "utilis are already installed."
+    info "utils are already installed."
   fi
 }
 

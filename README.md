@@ -9,6 +9,12 @@
 - asdf
 - GNU GLOBAL
 
+## Install
+```
+git clone git@github.com:tayutayura/dwarf.git ~/.dwarf  
+sh ~/.dwarf/dwarf create
+```
+
 ## Usage
 - dwarf link  
   link dotfiles.
