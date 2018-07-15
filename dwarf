@@ -9,6 +9,9 @@ readonly DWARF_INITIALIZERS_DIR=${DWARF_BASE_DIR}/initializers
 readonly DWARF_INITIALIZERS_COMMON_DIR=${DWARF_INITIALIZERS_DIR}/common
 declare DWARF_INITIALIZERS_OS_DIR=
 declare -a SCRIPT_LIST=
+declare -a CENTOS_SCRIPT_LIST=(utils.sh git.sh zsh.sh neovim.sh asdf.sh global.sh)
+declare -a UBUNTU_SCRIPT_LIST=
+declare -a MAC_SCRIPT_LIST=(brew.sh utils.sh zsh.sh neovim.sh asdf.sh global.sh)
 declare OS=
 
 # 青色でログを出力
@@ -103,13 +106,13 @@ detect_script_list()
 {
   case "${OS}" in
     CentOS)
-      SCRIPT_LIST=(utils.sh git.sh zsh.sh neovim.sh asdf.sh global.sh)
+      SCRIPT_LIST=("${CENTOS_SCRIPT_LIST[@]}")
       ;;
     Ubuntu)
-      SCRIPT_LIST=
+      SCRIPT_LIST=("${UBUNTU_SCRIPT_LIST[@]}")
       ;;
     Mac)
-      SCRIPT_LIST=(brew.sh utils.sh zsh.sh neovim.sh asdf.sh global.sh)
+      SCRIPT_LIST=("${MAC_SCRIPT_LIST[@]}")
       ;;
   esac
 }
