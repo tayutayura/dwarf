@@ -2,7 +2,7 @@
 export LANG=ja_JP.UTF-8
 
 # PROMPT
-# if sindresorhus/pure is not installed, this setting is reflected.
+# if sindresorhus/pure is not installed, reflect this setting.
 PROMPT='%m %~ %% '
 
 # autocomplete
@@ -72,5 +72,3 @@ fi
 
 # Then, source plugins and add commands to $PATH
 zplug load --verbose
-
-alias ctags="`brew --prefix`/bin/ctags"

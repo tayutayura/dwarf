@@ -16,11 +16,8 @@ Please add the following settings to '.bashrc'
 --------------------------------------------------
 
 # Setup asdf.
-if [ -f "\$HOME/.asdf/asdf.sh" ]; then
+if [[ -f "\$HOME/.asdf/asdf.sh" && -f \$HOME/.asdf/completions/asdf.bash ]]; then
   . \$HOME/.asdf/asdf.sh
-fi
-
-if [ -f "\$HOME/.asdf/completions/asdf.bash" ]; then
   . \$HOME/.asdf/completions/asdf.bash
 fi
 
