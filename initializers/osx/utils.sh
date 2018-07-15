@@ -9,7 +9,7 @@ utils__install()
   while read -r formura
   do
     local -i i=0
-    for f in "${install_list[@]}"; do
+    for f in ${install_list[@]}; do
       if [ "${formura}" == $f ]; then
         unset install_list[$i]
         install_list=("${install_list[@]}")
