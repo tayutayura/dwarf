@@ -4,6 +4,9 @@ zsh__install()
 {
   if [ ! -e "/bin/zsh" ]; then
     brew install zsh
+    info "zsh is installed!"
+    info "Please run:"
+    info "  chsh -s /bin/zsh"
   else
     info "zsh has already installed!"
   fi
@@ -28,5 +31,5 @@ zsh__install_zplug()
 }
 
 zsh__install
-zsh__chsh
+# zsh__chsh
 zsh__install_zplug
