@@ -5,7 +5,7 @@ declare -a INSTALL_LIST=(wget jq)
 # Install utility tools
 utils__install()
 {
-  local -a install_list=${INSTALL_LIST[@]}
+  local -a install_list=("${INSTALL_LIST[@]}")
   while read -r formura
   do
     local -i i=0
