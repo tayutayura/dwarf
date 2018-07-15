@@ -2,7 +2,11 @@
 
 neovim__install()
 {
-  brew install neovim/neovim/neovim
+  if [ ! -e "/usr/local/bin/nvim" ]; then
+    brew install neovim/neovim/neovim
+  else
+    info "neovim has already installed!"
+  fi
 }
 
 neovim__info()
