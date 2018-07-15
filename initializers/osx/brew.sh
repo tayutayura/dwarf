@@ -11,7 +11,11 @@ brew__install()
 
 brew__install_cask()
 {
-  brew tap caskroom/cask
+  if [ ! -d /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask ]; then
+    brew tap caskroom/cask
+  else
+    info "homebrew-cask has already installed!"
+  fi
 }
 
 brew__install
