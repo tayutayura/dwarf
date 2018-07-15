@@ -19,7 +19,7 @@ utils__install()
   done < <(brew list 2> /dev/null)
 
   if [ ${#install_list[@]} -ne 0 ]; then
-    brew install "${install_list[@]}"
+    brew install ${install_list[@]}
   else
     info "utilis are already installed."
   fi

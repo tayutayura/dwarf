@@ -17,7 +17,7 @@ asdf__install_dependencies()
   done < <(brew list 2> /dev/null)
 
   if [ ${#install_list[@]} -ne 0 ]; then
-    brew install "${install_list[@]}"
+    brew install ${install_list[@]}
   else
     info "asdf dependencies are already installed."
   fi
