@@ -3,7 +3,7 @@
 # Install utility tools
 utils__install()
 {
-  brew install wget
+  brew install wget jq
 }
 
 utils__install

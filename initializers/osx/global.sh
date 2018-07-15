@@ -31,7 +31,6 @@ global__install()
 }
 
 global__install_pygments
-echo $?
 if [ $? -ne 1 ]; then
   global__install
 fi

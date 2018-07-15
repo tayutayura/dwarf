@@ -9,4 +9,10 @@ brew__install()
   fi
 }
 
+brew__install_cask()
+{
+  brew tap caskroom/cask
+}
+
 brew__install
+brew__install_cask
