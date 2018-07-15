@@ -9,16 +9,17 @@ utils__install()
   while read -r formura
   do
     local -i i=0
-    for f in ${install_list[@]}; do
+    for f in "${install_list[@]}"; do
       if [ "${formura}" == $f ]; then
         unset install_list[$i]
+        install_list=("${install_list[@]}")
       fi
       let i++
     done
   done < <(brew list 2> /dev/null)
 
   if [ ${#install_list[@]} -ne 0 ]; then
-    brew install ${install_list}
+    brew install "${install_list[@]}"
   else
     info "utilis are already installed."
   fi
