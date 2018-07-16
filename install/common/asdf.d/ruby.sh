@@ -17,23 +17,22 @@ if [ $? -eq 0 ]; then
   asdf global ruby ${ASDF_RUBY_VERSION}
 fi
 
-check_gem_existence()
+asdf__ruby_install_bundle()
 {
-  local -i result=0
-  while read -r line
-  do
-    # [[ はクォートしていなくても単語分割は行われない
-    if [[ ${line} =~ ^$1.*$ ]]; then
-      result=1
-      break
-    fi
-  done < <(gem list 2> /dev/null)
-  return ${result}
+  bundle --version > /dev/null 2>&1
+  if [ $? -ne 0 ]; then
+    gem install bundler
+  fi
 }
 
-check_gem_existence neovim
-if [ $? -eq 0 ] && type nvim > /dev/null; then
-  gem install neovim;
-fi
+asdf__ruby_bundle()
+{
+  (
+    cd ${DWARF_BASE_DIR}
+    bundle install
+  )
+}
 
+asdf__ruby_install_bundle
+asdf__ruby_bundle
 asdf reshim ruby ${ASDF_RUBY_VERSION}
