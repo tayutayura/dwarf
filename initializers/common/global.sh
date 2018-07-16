@@ -4,8 +4,12 @@ GLOBAL_VERSION=6.6.2
 
 global__install_pygments()
 {
-  if type pip3; then
-    pip3 install pygments
+  check_pip3_existence Pygments
+  local -i result=$?
+  if type pip3 > /dev/null; then
+    if [ "${result}" -eq 0 ]; then
+      pip3 install Pygments
+    fi
     return 0
   else
     return 1
@@ -14,7 +18,7 @@ global__install_pygments()
 
 global__install()
 {
-  if ! type global 2> /dev/null; then
+  if ! type global > /dev/null; then
     (
       cd ${HOME}
       wget http://tamacom.com/global/global-${GLOBAL_VERSION}.tar.gz
@@ -27,6 +31,8 @@ global__install()
       rm -f global-${GLOBAL_VERSION}.tar.gz
       rm -rf global-${GLOBAL_VERSION}
     )
+  else
+    info "global has already installed!"
   fi
 }
 

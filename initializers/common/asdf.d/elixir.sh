@@ -20,7 +20,7 @@ fi
 check_mix_existence()
 {
   local -i result=0
-  while IFS= read -r formura
+  while read -r formura
   do
     if [[ ${formura} == $1 ]]; then
       result=1
