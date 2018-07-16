@@ -30,7 +30,7 @@ check_pip2_existence()
       result=1
       break
     fi
-  done < <(pip2 list --format=columns 2> /dev/null)
+  done < <(pip2 list --format=columns --no-cache-dir 2> /dev/null)
   return ${result}
 }
 
@@ -64,7 +64,7 @@ check_pip3_existence()
       result=1
       break
     fi
-  done < <(pip3 list --format=columns 2> /dev/null)
+  done < <(pip3 list --format=columns --no-cache-dir 2> /dev/null)
   return ${result}
 }
 
