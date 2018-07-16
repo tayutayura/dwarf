@@ -11,7 +11,7 @@ declare DWARF_INSTALL_OS_DIR=
 declare -a SCRIPT_LIST=
 declare -a CENTOS_SCRIPT_LIST=(utils.sh git.sh zsh.sh neovim.sh asdf.sh global.sh)
 declare -a UBUNTU_SCRIPT_LIST=
-declare -a MAC_SCRIPT_LIST=(brew.sh zsh.sh neovim.sh asdf.sh global.sh)
+declare -a MAC_SCRIPT_LIST=(brew.sh zsh.sh neovim.sh asdf.sh global.sh ricty.sh)
 declare OS=
 
 # 青色でログを出力
