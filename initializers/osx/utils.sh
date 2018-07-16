@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -a INSTALL_LIST=(wget jq)
+declare -a INSTALL_LIST=(wget jq gpg gpg-agent)
 
 # Install utility tools
 utils__install()

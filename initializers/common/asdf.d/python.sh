@@ -30,7 +30,7 @@ check_pip2_existence()
       result=1
       break
     fi
-  done < <(pip2 list 2> /dev/null)
+  done < <(pip2 list --format=columns 2> /dev/null)
   return ${result}
 }
 
@@ -39,6 +39,7 @@ if [ $? -eq 0 ] && type nvim > /dev/null; then
   pip2 install neovim;
 fi
 
+pip2 install --upgrade pip > /dev/null
 asdf reshim python ${ASDF_PYTHON2_VERSION}
 
 
@@ -63,7 +64,7 @@ check_pip3_existence()
       result=1
       break
     fi
-  done < <(pip3 list 2> /dev/null)
+  done < <(pip3 list --format=columns 2> /dev/null)
   return ${result}
 }
 
@@ -72,6 +73,7 @@ if [ $? -eq 0 ] && type nvim > /dev/null; then
   pip3 install neovim;
 fi
 
+pip3 install --upgrade pip > /dev/null
 asdf reshim python ${ASDF_PYTHON3_VERSION}
 
 if type nvim > /dev/null; then
