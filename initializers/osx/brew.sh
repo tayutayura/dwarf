@@ -9,24 +9,13 @@ brew__install()
   fi
 }
 
-brew__install_cask()
+brew__bundle()
 {
-  if [ ! -d /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask ]; then
-    brew tap caskroom/cask
-  else
-    info "homebrew-cask has already installed!"
-  fi
-}
-
-brew__install_bundle()
-{
-  if [ ! -d /usr/local/Homebrew/Library/Taps/homebrew/homebrew-bundle ]; then
-    brew tap Homebrew/bundle
-  else
-    info "homebrew-bundle has already installed!"
-  fi
+  (
+    cd ${DWARF_BASE_DIR}
+    brew bundle
+  )
 }
 
 brew__install
-brew__install_cask
-brew__install_bundle
+brew__bundle
