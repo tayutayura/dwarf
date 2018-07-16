@@ -3,26 +3,23 @@
 ASDF_PYTHON2_VERSION='2.7.13'
 ASDF_PYTHON3_VERSION='3.6.1'
 
-detect_plugin python || result=$?
-if [ ${result} -eq 0 ]; then
+detect_plugin python
+if [ $? -eq 0 ]; then
   asdf plugin-add python https://github.com/tuvistavie/asdf-python.git
 fi
-unset result
 
 
 ##### python2 #####
 
-detect_version python ${ASDF_PYTHON2_VERSION} || result=$?
-if [ ${result} -eq 0 ]; then
+detect_version python ${ASDF_PYTHON2_VERSION}
+if [ $? -eq 0 ]; then
   asdf install python ${ASDF_PYTHON2_VERSION}
 fi
-unset result
 
-detect_current_version python ${ASDF_PYTHON2_VERSION} || result=$?
-if [ ${result} -eq 0 ]; then
+detect_current_version python ${ASDF_PYTHON2_VERSION}
+if [ $? -eq 0 ]; then
   asdf global python ${ASDF_PYTHON2_VERSION}
 fi
-unset result
 
 check_pip2_existence()
 {
@@ -37,28 +34,25 @@ check_pip2_existence()
   return ${result}
 }
 
-check_pip2_existence neovim || result=$?
-if type nvim > /dev/null && [ ${result} -eq 0 ]; then
+check_pip2_existence neovim
+if [ $? -eq 0 ] && type nvim > /dev/null; then
   pip2 install neovim;
 fi
-unset result
 
 asdf reshim python ${ASDF_PYTHON2_VERSION}
 
 
 ##### python3 #####
 
-detect_version python ${ASDF_PYTHON3_VERSION} || result=$?
-if [ ${result} -eq 0 ]; then
+detect_version python ${ASDF_PYTHON3_VERSION}
+if [ $? -eq 0 ]; then
   asdf install python ${ASDF_PYTHON3_VERSION}
 fi
-unset result
 
-detect_current_version python ${ASDF_PYTHON3_VERSION} || result=$?
-if [ ${result} -eq 0 ]; then
+detect_current_version python ${ASDF_PYTHON3_VERSION}
+if [ $? -eq 0 ]; then
   asdf global python ${ASDF_PYTHON3_VERSION}
 fi
-unset result
 
 check_pip3_existence()
 {
@@ -73,11 +67,10 @@ check_pip3_existence()
   return ${result}
 }
 
-check_pip3_existence neovim || result=$?
-if type nvim > /dev/null && [ ${result} -eq 0 ]; then
+check_pip3_existence neovim
+if [ $? -eq 0 ] && type nvim > /dev/null; then
   pip3 install neovim;
 fi
-unset result
 
 asdf reshim python ${ASDF_PYTHON3_VERSION}
 

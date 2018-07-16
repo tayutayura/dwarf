@@ -2,23 +2,20 @@
 
 ASDF_RUBY_VERSION=2.5.0
 
-detect_plugin ruby || result=$?
-if [ ${result} -eq 0 ]; then
+detect_plugin ruby
+if [ $? -eq 0 ]; then
   asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
 fi
-unset result
 
-detect_version ruby ${ASDF_RUBY_VERSION} || result=$?
-if [ ${result} -eq 0 ]; then
+detect_version ruby ${ASDF_RUBY_VERSION}
+if [ $? -eq 0 ]; then
   asdf install ruby ${ASDF_RUBY_VERSION}
 fi
-unset result
 
-detect_current_version ruby ${ASDF_RUBY_VERSION} || result=$?
-if [ ${result} -eq 0 ]; then
+detect_current_version ruby ${ASDF_RUBY_VERSION} 
+if [ $? -eq 0 ]; then
   asdf global ruby ${ASDF_RUBY_VERSION}
 fi
-unset result
 
 check_gem_existence()
 {
@@ -34,10 +31,9 @@ check_gem_existence()
   return ${result}
 }
 
-check_gem_existence neovim || result=$?
-if type nvim > /dev/null && [ ${result} -eq 0 ]; then
+check_gem_existence neovim
+if [ $? -eq 0 ] && type nvim > /dev/null; then
   gem install neovim;
 fi
-unset result
 
 asdf reshim ruby ${ASDF_RUBY_VERSION}
