@@ -3,7 +3,7 @@
 readonly SCRIPT_NAME=${0##*/}
 readonly VERSION=0.2.0
 readonly DEFAULT_DOTFILES_DIR="${HOME}"
-readonly DWARF_BASE_DIR=$(dirname $0)
+readonly DWARF_BASE_DIR=$(realpath "$(dirname $0)"/../)
 readonly DWARF_DOTFILES_DIR="${DWARF_BASE_DIR}/dotfiles"
 readonly DWARF_INSTALL_DIR=${DWARF_BASE_DIR}/install
 readonly DWARF_INSTALL_COMMON_DIR=${DWARF_INSTALL_DIR}/common
