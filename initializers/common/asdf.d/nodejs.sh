@@ -5,6 +5,9 @@ ASDF_NODEJS_VERSION=9.4.0
 detect_plugin nodejs
 if [ $? -eq 0 ]; then
   asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+  export GNUPGHOME="${ASDF_DIR:-$HOME/.asdf}/keyrings/nodejs"
+  mkdir -p "$GNUPGHOME"
+  chmod 0700 "$GNUPGHOME"
   bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
 fi
 
