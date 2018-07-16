@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# declare -a INSTALL_LANG_SCRIPTS=(ruby.sh python.sh nodejs.sh golang.sh erlang.sh elixir.sh)
-declare -a INSTALL_LANG_SCRIPTS=(ruby.sh)
+declare -a INSTALL_LANG_SCRIPTS=(ruby.sh python.sh nodejs.sh golang.sh erlang.sh elixir.sh)
 
 # Install asdf
 asdf__download()
