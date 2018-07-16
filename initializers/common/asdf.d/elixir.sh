@@ -6,16 +6,19 @@ detect_plugin elixir || result=$?
 if [ ${result} -eq 0 ]; then
   asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
 fi
+unset result
 
 detect_version elixir ${ASDF_ELIXIR_VERSION} || result=$?
 if [ ${result} -eq 0 ]; then
   asdf install elixir ${ASDF_ELIXIR_VERSION}
 fi
+unset result
 
 detect_current_version elixir ${ASDF_ELIXIR_VERSION} || result=$?
 if [ ${result} -eq 0 ]; then
   asdf global elixir ${ASDF_ELIXIR_VERSION}
 fi
+unset result
 
 check_mix_existence()
 {
@@ -34,5 +37,6 @@ check_mix_existence hex || result=$?
 if [ ${result} -eq 0 ]; then
   yes | mix local.hex
 fi
+unset result
 
 asdf reshim elixir ${ASDF_ELIXIR_VERSION}

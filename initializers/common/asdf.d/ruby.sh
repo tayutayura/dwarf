@@ -6,16 +6,19 @@ detect_plugin ruby || result=$?
 if [ ${result} -eq 0 ]; then
   asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
 fi
+unset result
 
 detect_version ruby ${ASDF_RUBY_VERSION} || result=$?
 if [ ${result} -eq 0 ]; then
   asdf install ruby ${ASDF_RUBY_VERSION}
 fi
+unset result
 
 detect_current_version ruby ${ASDF_RUBY_VERSION} || result=$?
 if [ ${result} -eq 0 ]; then
   asdf global ruby ${ASDF_RUBY_VERSION}
 fi
+unset result
 
 check_gem_existence()
 {
@@ -35,5 +38,6 @@ check_gem_existence neovim || result=$?
 if type nvim > /dev/null && [ ${result} -eq 0 ]; then
   gem install neovim;
 fi
+unset result
 
 asdf reshim ruby ${ASDF_RUBY_VERSION}

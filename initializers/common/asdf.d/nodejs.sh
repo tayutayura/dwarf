@@ -7,16 +7,19 @@ if [ ${result} -eq 0 ]; then
   asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
   bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
 fi
+unset result
 
 detect_version nodejs ${ASDF_NODEJS_VERSION} || result=$?
 if [ ${result} -eq 0 ]; then
   asdf install nodejs ${ASDF_NODEJS_VERSION}
 fi
+unset result
 
 detect_current_version nodejs ${ASDF_NODEJS_VERSION} || result=$?
 if [ ${result} -eq 0 ]; then
   asdf global nodejs ${ASDF_NODEJS_VERSION}
 fi
+unset result
 
 check_npm_existence()
 {
@@ -35,5 +38,6 @@ check_npm_existence neovim || result=$?
 if type nvim > /dev/null && [ ${result} -eq 0 ]; then
   npm install -g neovim
 fi
+unset result
 
 asdf reshim nodejs ${ASDF_NODEJS_VERSION}
