@@ -18,5 +18,15 @@ brew__install_cask()
   fi
 }
 
+brew__install_bundle()
+{
+  if [ ! -d /usr/local/Homebrew/Library/Taps/homebrew/homebrew-bundle ]; then
+    brew tap Homebrew/bundle
+  else
+    info "homebrew-bundle has already installed!"
+  fi
+}
+
 brew__install
-brew__install_cask
+brew__install cask
+brew__install bundle
