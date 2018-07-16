@@ -42,11 +42,11 @@ asdf__install_languages()
 
 detect_plugin()
 {
-  local -i result=1
+  local -i result=0
   while read -r plugin
   do
     if [ "${plugin}" == "$1" ]; then
-      result=0
+      result=1
     fi
   done < <(asdf plugin-list 2> /dev/null)
   return ${result}
@@ -54,11 +54,11 @@ detect_plugin()
 
 detect_version()
 {
-  local -i result=1
+  local -i result=0
   while read -r version
   do
     if [ "${version}" == "$2" ];then
-      result=0
+      result=1
     fi
   done < <(asdf list "$1" 2> /dev/null)
   return ${result}
@@ -66,10 +66,10 @@ detect_version()
 
 detect_current_version()
 {
-  local -i result=1
+  local -i result=0
   local current_version=$(asdf current "$1" | awk '{print $1}')
   if [ "${current_version}" == "$2" ]; then
-    result=0
+    result=1
   fi
   return ${result}
 }

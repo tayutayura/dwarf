@@ -2,21 +2,18 @@
 
 ASDF_ERLANG_VERSION="20.2.2"
 
-detect_plugin erlang
-
-if [ $? -eq 1 ]; then
+detect_plugin erlang || result=$?
+if [ ${result} -eq 0 ]; then
   asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
 fi
 
-detect_version erlang ${ASDF_ERLANG_VERSION}
-
-if [ $? -eq 1 ]; then
+detect_version erlang ${ASDF_ERLANG_VERSION} || result=$?
+if [ ${result} -eq 0 ]; then
   asdf install erlang ${ASDF_ERLANG_VERSION}
 fi
 
-detect_current_version erlang ${ASDF_ERLANG_VERSION}
-
-if [ $? -eq 1 ]; then
+detect_current_version erlang ${ASDF_ERLANG_VERSION} || result=$?
+if [ ${result} -eq 0 ]; then
   asdf global erlang ${ASDF_ERLANG_VERSION}
 fi
 
