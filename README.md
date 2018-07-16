@@ -14,6 +14,7 @@
   - Erlang
   - Elixir
 - GNU GLOBAL
+- Ricty(Mac only)
 
 ## Install
 ```
