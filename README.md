@@ -7,6 +7,12 @@
 - Zsh
   - zplug
 - asdf
+  - Ruby
+  - Python
+  - Go
+  - Nodejs
+  - Erlang
+  - Elixir
 - GNU GLOBAL
 
 ## Install
