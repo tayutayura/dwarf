@@ -21,7 +21,8 @@ ricty__download_generator()
 
 ricty__generate()
 {
-  . ricty_generator.sh Inconsolata.otf migu-1m-{regular,bold}.ttf
+
+  (. ricty_generator.sh Inconsolata.otf migu-1m-{regular,bold}.ttf)
 }
 
 ricty__install()
@@ -47,7 +48,7 @@ ricty__is_installed()
   ricty__is_installed
   if [ $? -eq 0 ]; then
     local tmpdir=$(mktemp -d)
-    echo $tmpdir
+    trap "rm -rf ${tmpdir}" EXIT INT QUIT TERM
     cd $tmpdir
     ricty__download_generator
     ricty__download_migu1m
@@ -55,7 +56,6 @@ ricty__is_installed()
     cd ./Ricty/
     ricty__generate
     ricty__install
-    rm -rf $tmpdir
   else
     info "Ricty has already installed!"
   fi
