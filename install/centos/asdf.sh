@@ -69,4 +69,4 @@ asdf__install_python_dependencies
 asdf__install_nodejs_dependencies
 asdf__install_erlang_dependencies
 asdf__install_elixir_dependencies
-. ${DWARF_INITIALIZERS_COMMON_DIR}/asdf.sh
+. ${DWARF_INSTALL_COMMON_DIR}/asdf.sh

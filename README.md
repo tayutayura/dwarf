@@ -24,7 +24,7 @@ sh ~/.dwarf/dwarf create
 ## Usage
 - dwarf link  
   link dotfiles.
-- dwarf initialize  
+- dwarf install  
   install toolset.
 - dwarf create  
-  link & initialize.
+  link & install.

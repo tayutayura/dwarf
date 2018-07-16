@@ -5,9 +5,9 @@ readonly VERSION=0.2.0
 readonly DEFAULT_DOTFILES_DIR="${HOME}"
 readonly DWARF_BASE_DIR=$(dirname $0)
 readonly DWARF_DOTFILES_DIR="${DWARF_BASE_DIR}/dotfiles"
-readonly DWARF_INITIALIZERS_DIR=${DWARF_BASE_DIR}/initializers
-readonly DWARF_INITIALIZERS_COMMON_DIR=${DWARF_INITIALIZERS_DIR}/common
-declare DWARF_INITIALIZERS_OS_DIR=
+readonly DWARF_INSTALL_DIR=${DWARF_BASE_DIR}/install
+readonly DWARF_INSTALL_COMMON_DIR=${DWARF_INSTALL_DIR}/common
+declare DWARF_INSTALL_OS_DIR=
 declare -a SCRIPT_LIST=
 declare -a CENTOS_SCRIPT_LIST=(utils.sh git.sh zsh.sh neovim.sh asdf.sh global.sh)
 declare -a UBUNTU_SCRIPT_LIST=
@@ -45,8 +45,8 @@ help()
 Usage: $SCRIPT_NAME <COMMAND>
 
 Commands:
-  create      Initialize & Link
-  initialize  Install libraries & dependencies
+  create      Install & Link
+  install  Install libraries & dependencies
   link        Create symbolic link to dotfile
 END
 }
@@ -85,18 +85,18 @@ detect_os()
   esac
 }
 
-# DWARF_INITIALIZERS_OS_DIRを定義する
-detect_initializers_dir()
+# DWARF_INSTALL_OS_DIRを定義する
+detect_install_dir()
 {
   case "${OS}" in
     CentOS)
-      DWARF_INITIALIZERS_OS_DIR="${DWARF_INITIALIZERS_DIR}/centos"
+      DWARF_INSTALL_OS_DIR="${DWARF_INSTALL_DIR}/centos"
       ;;
     Ubuntu)
-      DWARF_INITIALIZERS_OS_DIR="${DWARF_INITIALIZERS_DIR}/ubuntu"
+      DWARF_INSTALL_OS_DIR="${DWARF_INSTALL_DIR}/ubuntu"
       ;;
     Mac)
-      DWARF_INITIALIZERS_OS_DIR="${DWARF_INITIALIZERS_DIR}/osx"
+      DWARF_INSTALL_OS_DIR="${DWARF_INSTALL_DIR}/osx"
       ;;
   esac
 }
@@ -128,14 +128,14 @@ load_script()
 }
 
 # ライブラリのインストールを行う
-initialize()
+install()
 {
-  detect_initializers_dir
+  detect_install_dir
   detect_script_list
 
   for script in ${SCRIPT_LIST[@]}
   do
-    load_script "${DWARF_INITIALIZERS_OS_DIR}/${script}"
+    load_script "${DWARF_INSTALL_OS_DIR}/${script}"
   done
 }
 
@@ -149,15 +149,15 @@ link()
   done
 }
 
-# initialize & link
+# install & link
 create()
 {
   link
-  initialize
+  install
 }
 
 case "$1" in
-  create|initialize|link)
+  create|install|link)
     sub_command=$1
     detect_os
     shift
@@ -182,8 +182,8 @@ case "${sub_command}" in
   'link')
     link
     ;;
-  'initialize')
-    initialize
+  'install')
+    install
     ;;
   'create')
     create

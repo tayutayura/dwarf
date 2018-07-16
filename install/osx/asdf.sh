@@ -24,4 +24,4 @@ asdf__install_dependencies()
 }
 
 asdf__install_dependencies
-. ${DWARF_INITIALIZERS_COMMON_DIR}/asdf.sh
+. ${DWARF_INSTALL_COMMON_DIR}/asdf.sh

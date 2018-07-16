@@ -32,7 +32,7 @@ END
 
 asdf__install_languages()
 {
-  local asdf_lang_dir=${DWARF_INITIALIZERS_COMMON_DIR}/asdf.d
+  local asdf_lang_dir=${DWARF_INSTALL_COMMON_DIR}/asdf.d
   local -a install_lang_scripts=("${INSTALL_LANG_SCRIPTS[@]}")
   for script in ${install_lang_scripts[@]}
   do
