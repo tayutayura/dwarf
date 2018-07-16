@@ -28,5 +28,5 @@ brew__install_bundle()
 }
 
 brew__install
-brew__install cask
-brew__install bundle
+brew__install_cask
+brew__install_bundle
