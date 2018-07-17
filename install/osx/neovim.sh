@@ -12,10 +12,12 @@ neovim__install()
 neovim__install_dein()
 {
   (
-    mkdir -p $XDG_CACHE_HOME/dein
-    cd $XDG_CACHE_HOME/dein
-    curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-    sh ./installer.sh $XDG_CACHE_HOME/dein
+    if [ -d $XDG_CACHE_HOME/dein ]; then
+      mkdir -p $XDG_CACHE_HOME/dein
+      cd $XDG_CACHE_HOME/dein
+      curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+      sh ./installer.sh $XDG_CACHE_HOME/dein
+    fi
   )
 }
 
