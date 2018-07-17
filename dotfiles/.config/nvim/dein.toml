@@ -23,12 +23,6 @@ repo = 'Shougo/neomru.vim'
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'tomasr/molokai'
-
-[[plugins]]
-repo = 'dracula/vim'
-
-[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
@@ -51,31 +45,22 @@ repo = 'tomtom/tcomment_vim'
 repo = 'itchyny/lightline.vim'
 hook_add = '''
 let g:lightline = {
-  \'active': {
-  \  'left': [
-  \    ['mode', 'paste'],
-  \    ['readonly', 'filename', 'modified'],
-  \  ],
-  \  'right': [
-  \    ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
-  \    ['lineinfo'],
-  \    ['percent'],
-  \    ['fileformat', 'fileencoding', 'filetype']
-  \  ]
-  \},
-\ }
-'''
-
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-  let g:ale_linters = {
-  \   'javascript': ['eslint'],
-  \}
-
-  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-  nmap <silent> <C-j> <Plug>(ale_next_wrap)
-  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+  \ 'colorscheme': 'wombat',
+  \ 'active': {
+  \   'left': [
+  \     ['mode', 'paste'],
+  \     ['readonly', 'filename', 'modified'],
+  \   ],
+  \   'right': [
+  \     ['lineinfo'],
+  \     ['percent'],
+  \     ['fileformat', 'fileencoding', 'filetype'],
+  \     ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
+  \   ]
+  \ },
+  \ 'component_function': {
+  \ }
+  \ }
 '''
 
 [[plugins]]
@@ -92,8 +77,25 @@ hook_add = '''
   \ 'linter_checking': 'left',
   \ 'linter_warnings': 'warning',
   \ 'linter_errors': 'error',
-  \ 'linter_ok': 'left'
+  \ 'linter_ok': 'left',
   \ }
+  let g:lightline#ale#indicator_warnings = '⚠ '
+  let g:lightline#ale#indicator_errors = '⨉ '
+  let g:lightline#ale#indicator_ok = '⬥ OK'
+'''
+
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = '''
+  let g:ale_linters = {
+  \   'javascript': ['eslint'],
+  \}
+
+  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+  let g:ale_lint_on_save = 1
+  let g:ale_lint_on_text_changed = 0
+  nmap <silent> <C-j> <Plug>(ale_next_wrap)
+  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 '''
 
 [[plugins]]
@@ -105,4 +107,10 @@ repo = 'jsfaint/gen_tags.vim'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'dracula/vim'
 

@@ -23,6 +23,8 @@ setopt auto_pushd           # 移動したディレクトリを記憶 cd -[tab]
 unsetopt correctall         # disable correct
 setopt nolistbeep           # ビープ音を消す
 
+export PATH="$HOME/.dwarf/bin:$PATH"
+
 # aliases
 alias vi='nvim'
 

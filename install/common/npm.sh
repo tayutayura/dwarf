@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -a NPM__GLOBAL_PACKAGES=(yarn)
+declare -a NPM__GLOBAL_PACKAGES=(yarn eslint babel-eslint prettier)
 
 npm__install_to_global()
 {
