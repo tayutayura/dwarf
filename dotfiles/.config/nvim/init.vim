@@ -46,10 +46,8 @@ endif
 
 "End dein Scripts-------------------------
 
-"set background=dark
-colorscheme molokai
-"let g:molokai_original = 1
-"let g:rehash256 = 1
+set background=dark
+colorscheme dracula
 
 set encoding=utf8
 set notitle

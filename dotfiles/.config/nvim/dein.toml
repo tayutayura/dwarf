@@ -99,6 +99,12 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+  nnoremap <C-e> :NERDTreeToggle<CR>
+'''
+
+[[plugins]]
 repo = 'jsfaint/gen_tags.vim'
 #hook_source = '''
 #  let g:gen_tags#ctags_auto_gen = 0
@@ -113,4 +119,3 @@ repo = 'tomasr/molokai'
 
 [[plugins]]
 repo = 'dracula/vim'
-
