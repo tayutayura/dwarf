@@ -5,6 +5,7 @@ endif
 
 let g:python_host_prog =  expand("$HOME/.asdf/installs/python/2.7.13/bin/python2")
 let g:python3_host_prog =  expand("$HOME/.asdf/installs/python/3.6.1/bin/python3")
+
 let g:dein_dir = expand("$HOME/.cache/dein")
 let g:dein_repo_dir = g:dein_dir . '/repos/github.com/Shougo/dein.vim'
 let g:rc_dir = expand("$HOME/.config/nvim")
@@ -14,7 +15,7 @@ if !isdirectory(g:dein_repo_dir)
 endif
 
 " Required:
-execute 'set runtimepath^=' . g:dein_repo_dir
+execute 'set runtimepath+=' . g:dein_repo_dir
 
 " Required:
 if dein#load_state(g:dein_dir)
@@ -46,7 +47,7 @@ endif
 "End dein Scripts-------------------------
 
 "set background=dark
-colorscheme dracula
+colorscheme molokai
 "let g:molokai_original = 1
 "let g:rehash256 = 1
 

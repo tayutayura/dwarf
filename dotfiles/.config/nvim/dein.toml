@@ -1,88 +1,5 @@
 [[plugins]]
-repo = 'Shougo/neosnippet.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
 repo = 'Shougo/dein.vim'
-
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-
-[[plugins]]
-repo = 'Shougo/vimshell.vim'
-rev  = '3787e5'
-
-[[plugins]]
-repo = 'tomasr/molokai'
-
-[[plugins]]
-repo = 'dracula/vim'
-
-[[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
-hook_add = '''
-  let g:indent_guides_enable_on_vim_startup = 1
-  let g:indent_guides_guide_size = 1
-  let g:indent_guides_auto_colors = 0
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=0
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=8
-'''
-
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-hook_add = '''
-let g:lightline = {
-  \'active': {
-  \  'left': [
-  \    ['mode', 'paste'],
-  \    ['readonly', 'filename', 'modified'],
-  \  ],
-  \  'right': [
-  \    ['ale'],
-  \    ['lineinfo'],
-  \    ['percent'],
-  \    ['fileformat', 'fileencoding', 'filetype']
-  \  ]
-  \},
-  \'component_function': {
-  \  'ale': 'ALEStatus'
-  \}
-\ }
-
-function! ALEStatus()
-  return ALEGetStatusLine()
-endfunction
-'''
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-# [[plugins]]
-# repo = 'jsfaint/gen_tags.vim'
-# hook_source = '''
-#   # let g:gen_tags#ctags_auto_gen = 0
-#   # let g:gen_tags#gtags_auto_gen = 1
-# '''
-
-[[plugins]]
-repo = 'tpope/vim-surround'
-
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
-
-[[plugins]]
-repo = 'thinca/vim-quickrun'
-
-[[plugins]]
-repo = 'mattn/emmet-vim'
-
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-hook_add = '''
-  nnoremap <C-e> :NERDTreeToggle<CR>
-'''
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -100,13 +17,80 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-  let g:ale_linters = {
-  \   'javascript': ['eslint'],
-  \}
+repo = 'Shougo/neomru.vim'
 
-  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-  nmap <silent> <C-j> <Plug>(ale_next_wrap)
-  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'dracula/vim'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+  let g:indent_guides_enable_on_vim_startup = 1
+  let g:indent_guides_guide_size = 1
+  let g:indent_guides_auto_colors = 0
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=0
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=8
 '''
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+# [[plugins]]
+# repo = 'itchyny/lightline.vim'
+# hook_add = '''
+# let g:lightline = {
+#   \'active': {
+#   \  'left': [
+#   \    ['mode', 'paste'],
+#   \    ['readonly', 'filename', 'modified'],
+#   \  ],
+#   \  'right': [
+#   \    ['ale'],
+#   \    ['lineinfo'],
+#   \    ['percent'],
+#   \    ['fileformat', 'fileencoding', 'filetype']
+#   \  ]
+#   \},
+#   \'component_function': {
+#   \  'ale': 'ALEStatus'
+#   \}
+# \ }
+#
+# function! ALEStatus()
+#   return ALEGetStatusLine()
+# endfunction
+# '''
+
+# [[plugins]]
+# repo = 'jsfaint/gen_tags.vim'
+# hook_source = '''
+#   # let g:gen_tags#ctags_auto_gen = 0
+#   # let g:gen_tags#gtags_auto_gen = 1
+# '''
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+# [[plugins]]
+# repo = 'w0rp/ale'
+# hook_add = '''
+#   let g:ale_linters = {
+#   \   'javascript': ['eslint'],
+#   \}
+#
+#   let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+#   nmap <silent> <C-j> <Plug>(ale_next_wrap)
+#   nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+# '''
