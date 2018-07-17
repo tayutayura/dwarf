@@ -47,50 +47,62 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
 
-# [[plugins]]
-# repo = 'itchyny/lightline.vim'
-# hook_add = '''
-# let g:lightline = {
-#   \'active': {
-#   \  'left': [
-#   \    ['mode', 'paste'],
-#   \    ['readonly', 'filename', 'modified'],
-#   \  ],
-#   \  'right': [
-#   \    ['ale'],
-#   \    ['lineinfo'],
-#   \    ['percent'],
-#   \    ['fileformat', 'fileencoding', 'filetype']
-#   \  ]
-#   \},
-#   \'component_function': {
-#   \  'ale': 'ALEStatus'
-#   \}
-# \ }
-#
-# function! ALEStatus()
-#   return ALEGetStatusLine()
-# endfunction
-# '''
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+let g:lightline = {
+  \'active': {
+  \  'left': [
+  \    ['mode', 'paste'],
+  \    ['readonly', 'filename', 'modified'],
+  \  ],
+  \  'right': [
+  \    ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
+  \    ['lineinfo'],
+  \    ['percent'],
+  \    ['fileformat', 'fileencoding', 'filetype']
+  \  ]
+  \},
+\ }
+'''
 
-# [[plugins]]
-# repo = 'jsfaint/gen_tags.vim'
-# hook_source = '''
-#   # let g:gen_tags#ctags_auto_gen = 0
-#   # let g:gen_tags#gtags_auto_gen = 1
-# '''
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = '''
+  let g:ale_linters = {
+  \   'javascript': ['eslint'],
+  \}
+
+  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+  nmap <silent> <C-j> <Plug>(ale_next_wrap)
+  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+'''
+
+[[plugins]]
+repo = 'maximbaz/lightline-ale'
+depends = ['lightline.vim', 'ale']
+hook_add = '''
+  let g:lightline.component_expand = {
+  \ 'linter_checking': 'lightline#ale#checking',
+  \ 'linter_warnings': 'lightline#ale#warnings',
+  \ 'linter_errors': 'lightline#ale#errors',
+  \ 'linter_ok': 'lightline#ale#ok',
+  \ }
+  let g:lightline.component_type = {
+  \ 'linter_checking': 'left',
+  \ 'linter_warnings': 'warning',
+  \ 'linter_errors': 'error',
+  \ 'linter_ok': 'left'
+  \ }
+'''
+
+[[plugins]]
+repo = 'jsfaint/gen_tags.vim'
+#hook_source = '''
+#  let g:gen_tags#ctags_auto_gen = 0
+#  let g:gen_tags#gtags_auto_gen = 1
+#'''
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 
-# [[plugins]]
-# repo = 'w0rp/ale'
-# hook_add = '''
-#   let g:ale_linters = {
-#   \   'javascript': ['eslint'],
-#   \}
-#
-#   let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-#   nmap <silent> <C-j> <Plug>(ale_next_wrap)
-#   nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-# '''
