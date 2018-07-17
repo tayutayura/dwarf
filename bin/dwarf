@@ -46,7 +46,7 @@ Usage: $SCRIPT_NAME <COMMAND>
 
 Commands:
   create      Install & Link
-  install  Install libraries & dependencies
+  install     Install libraries & dependencies
   link        Create symbolic link to dotfile
 END
 }
