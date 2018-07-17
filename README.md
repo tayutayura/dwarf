@@ -18,7 +18,7 @@
 
 ## Install
 ```
-git clone git@github.com:tayutayura/dwarf.git ~/.dwarf  
+git clone git@github.com:tayutayura/dwarf.git ~/.dwarf --branch v0.3.1
 sh ~/.dwarf/dwarf create
 ```
 
