@@ -35,7 +35,7 @@ ricty__is_installed()
   local -i result=0
   while IFS= read -r font
   do
-    if [[ ${font} =~ ^Ricty.*$ ]]; then
+    if [[ ${font} =~ ^"$1"$ ]]; then
       result=1
       break
     fi
@@ -44,7 +44,7 @@ ricty__is_installed()
 }
 
 (
-  ricty__is_installed
+  ricty__is_installed "Ricty-Regular.ttf"
   if [ $? -eq 0 ]; then
     local tmpdir=$(mktemp -d)
     trap "rm -rf ${tmpdir}" EXIT INT QUIT TERM
