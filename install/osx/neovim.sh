@@ -9,6 +9,16 @@ neovim__install()
   fi
 }
 
+neovim__install_dein()
+{
+  (
+    mkdir -p $XDG_CACHE_HOME/dein
+    cd $XDG_CACHE_HOME/dein
+    curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+    sh ./installer.sh $XDG_CACHE_HOME/dein
+  )
+}
+
 neovim__info()
 {
   cat << END
@@ -29,4 +39,6 @@ END
 }
 
 neovim__install
+. ${HOME}/.bashrc
+neovim__install_dein
 neovim__info

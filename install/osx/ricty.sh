@@ -21,7 +21,6 @@ ricty__download_generator()
 
 ricty__generate()
 {
-
   (. ricty_generator.sh Inconsolata.otf migu-1m-{regular,bold}.ttf)
 }
 
