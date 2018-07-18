@@ -5,7 +5,9 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
-sudo yum -y install inotify-tools
+if [ ${OS} == "CentOS" ]; then
+  sudo yum -y install inotify-tools
+fi
 
 mix phx.new "$1" --database mysql
 

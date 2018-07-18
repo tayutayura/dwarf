@@ -17,7 +17,7 @@ EOS
 
 bundle install --path vendor/bundle
 
-bundle exec rails new "$1" --skip-bundle
+bundle exec rails new "$1" --skip-bundle --database=mysql
 
 rm -f Gemfile
 rm -f Gemfile.lock
