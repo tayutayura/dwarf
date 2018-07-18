@@ -111,12 +111,12 @@ hook_add = '''
   nnoremap <C-e> :NERDTreeToggle<CR>
 '''
 
-[[plugins]]
-repo = 'jsfaint/gen_tags.vim'
-#hook_source = '''
-#  let g:gen_tags#ctags_auto_gen = 0
-#  let g:gen_tags#gtags_auto_gen = 1
-#'''
+# [[plugins]]
+# repo = 'jsfaint/gen_tags.vim'
+# hook_source = '''
+#   let g:gen_tags#ctags_auto_gen = 0
+#   let g:gen_tags#gtags_auto_gen = 1
+# '''
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'

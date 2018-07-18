@@ -145,7 +145,14 @@ link()
   # 環境変数DOTFILES_DIRが設定されていればそちらを使う
   local dotfiles_dir=${DOTFILES_DIR:-$DEFAULT_DOTFILES_DIR}
   for file in $(find -- $(cd ${DWARF_DOTFILES_DIR}; pwd) -mindepth 1 -maxdepth 1); do
-    ln -sfnv ${file} ${dotfiles_dir}/$(basename ${file})
+    if [ -f ${file} ];then
+      ln -sfnv ${file} ${dotfiles_dir}/$(basename ${file})
+    elif [ -d ${file} ];then
+      if [ -d ${dotfiles_dir}/$(basename ${file}) ]; then
+        rm -rf ${dotfiles_dir}/$(basename ${file})
+      fi
+      ln -sfnv ${file} ${dotfiles_dir}
+    fi
   done
 }
 
