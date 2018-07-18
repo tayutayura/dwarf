@@ -42,6 +42,13 @@ repo = 'tpope/vim-surround'
 repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
+repo = 'junegunn/vim-easy-align'
+hook_add = '''
+  vmap <Space> <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
+'''
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
 let g:lightline = {
