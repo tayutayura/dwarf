@@ -1,4 +1,9 @@
 ---
+AllCops:
+  Exclude:
+    - "node_modules/**/*"
+    - "vendor/**/*"
+    - "db/schema.rb"
 
 #################### Layout ###########################
 
@@ -7,6 +12,15 @@
 #################### Style ###########################
 
 Style/StringLiterals:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/Documentation:
   Enabled: false
 
 #################### Metrics ###############################
@@ -19,3 +33,7 @@ Metrics/LineLength:
 #################### Performance ###########################
 
 #################### Rails #################################
+
+Bundler/OrderedGems:
+  Exclude:
+    - 'Gemfile'
