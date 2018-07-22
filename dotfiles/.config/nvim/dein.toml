@@ -97,6 +97,7 @@ hook_add = '''
   let g:ale_linters = {
   \   'javascript': ['eslint'],
   \   'ruby': ['rubocop'],
+  \   'elixir': ['mix'],
   \}
 
   let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
