@@ -100,7 +100,6 @@ hook_add = '''
   \   'elixir': ['mix'],
   \}
 
-  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
   let g:ale_lint_on_save = 1
   let g:ale_lint_on_text_changed = 0
   nmap <silent> <C-j> <Plug>(ale_next_wrap)
