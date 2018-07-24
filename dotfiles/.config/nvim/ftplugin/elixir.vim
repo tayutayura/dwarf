@@ -6,7 +6,7 @@ augroup END
 
 func! TouchOpenFile()
   let g:ale_enabled = 0
-  sleep 500m
+  sleep 800m
   w
   let g:ale_enabled = 1
 endfunc
