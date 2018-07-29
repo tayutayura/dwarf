@@ -34,10 +34,10 @@ on_ft = ['go']
 repo = 'elixir-lang/vim-elixir'
 on_ft = ['elixir']
 
-# [[plugins]]
-# repo = 'lighttiger2505/gtags.vim'
-# hook_add = '''
-#   nnoremap <silent> <C-]> :GtagsCursor<CR>
-#   nnoremap <silent> <C-j> :cn<CR>
-#   nnoremap <silent> <C-k> :cp<CR>
-# '''
+[[plugins]]
+repo = 'lighttiger2505/gtags.vim'
+hook_add = '''
+  nnoremap <silent> <C-]> :GtagsCursor<CR>
+  nnoremap <silent> <C-j> :cn<CR>
+  nnoremap <silent> <C-k> :cp<CR>
+'''
