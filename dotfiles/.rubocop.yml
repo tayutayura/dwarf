@@ -23,6 +23,9 @@ Style/SymbolArray:
 Style/Documentation:
   Enabled: false
 
+Style/AsciiComments:
+  Enabled: false
+
 #################### Metrics ###############################
 
 Metrics/LineLength:
@@ -35,5 +38,4 @@ Metrics/LineLength:
 #################### Rails #################################
 
 Bundler/OrderedGems:
-  Exclude:
-    - 'Gemfile'
+  Enabled: false
