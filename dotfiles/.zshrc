@@ -23,11 +23,6 @@ setopt auto_pushd           # 移動したディレクトリを記憶 cd -[tab]
 unsetopt correctall         # disable correct
 setopt nolistbeep           # ビープ音を消す
 
-export PATH="$HOME/.dwarf/bin:$PATH"
-
-# aliases
-alias vi='nvim'
-
 # Find where asdf should be installed.
 ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
 
@@ -39,18 +34,26 @@ fi
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_CONFIG_HOME="${HOME}/.config"
 
-# PATH for cargo
+# Path for cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# PATH for node_modules in current directory
+# Relative path for nodejs
 export PATH=$PATH:node_modules/.bin
 
-# PATH for rebar3
+# Path for rebar3
 export PATH=$HOME/.cache/rebar3/bin:$PATH
 
-export USE_LLDB=1
+# Path fot golang
+export GOPATH=$HOME/.go
+
+# Path for dwarf (Homemade script)
+export PATH="$HOME/.dwarf/bin:$PATH"
+
+# aliases
+alias vi='nvim'
 
 source ~/.zplug/init.zsh
+
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search"
