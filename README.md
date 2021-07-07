@@ -1,6 +1,6 @@
-# Dwarf - dotfiles
+# dotfiles-2018
 
-@tayutayura's dotfiles
+My dotfiles
 ## Toolset
 - Neovim
   - dein
@@ -18,8 +18,8 @@
 
 ## Install
 ```
-git clone git@github.com:tayutayura/dwarf.git ~/.dwarf --branch v0.3.1
-sh ~/.dwarf/dwarf create
+git clone git@github.com:croixxant/dotfiles-2018.git ~/.dwarf
+sh ~/.dwarf/bin/dwarf create
 ```
 
 ## Usage
